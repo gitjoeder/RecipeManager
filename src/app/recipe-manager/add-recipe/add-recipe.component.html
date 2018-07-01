@@ -1,0 +1,35 @@
+<mat-toolbar ngClass="recipe-toolbar">
+  <label>Create New Recipe</label>
+  <div>
+    <button mat-raised-button (click)="saveRecipe()" ngClass="add-recipe-toolbar-buttons">
+      <i class="fas far fa-save save-recipe-button"></i>
+      <label>Save</label>
+    </button>
+    <button mat-raised-button routerLink="/recipe-manager" routerLinkActive="active">
+      <i class="fas fa-home save-recipe-button"></i>
+      <label>Home</label>
+    </button>
+  </div>
+
+</mat-toolbar>
+
+<div class="example-container">
+  <mat-form-field floatLabel="never">
+    <input ngClass="recipe-name-label" matInput [(ngModel)]="newRecipe.recipeViewName" placeholder="Recipe Name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <label ngClass="recipe-label">Ingredients</label>
+    <textarea autosize matInput [(ngModel)]="newRecipe.ingredients"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <label ngClass="recipe-label">Prep Instructions</label>
+    <textarea autosize matInput [(ngModel)]="newRecipe.prepInstructions"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <label ngClass="recipe-label">Directions</label>
+    <textarea autosize matInput [(ngModel)]="newRecipe.directions"></textarea>
+  </mat-form-field>
+</div>

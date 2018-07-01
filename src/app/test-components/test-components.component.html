@@ -1,0 +1,157 @@
+<mat-tab-group ngClass="tab-group">
+  <mat-tab label="Recipe">
+    <app-recipe-manager></app-recipe-manager>
+  </mat-tab>
+  <mat-tab label="Week">
+    <app-week-view></app-week-view>
+  </mat-tab>
+
+
+
+
+  <mat-tab label="First">
+    <mat-checkbox>Check me!</mat-checkbox>
+    <mat-slide-toggle>Slide me!</mat-slide-toggle>
+    <mat-radio-group>
+      <mat-radio-button value="1">Option 1</mat-radio-button>
+      <mat-radio-button value="2">Option 2</mat-radio-button>
+    </mat-radio-group>
+  </mat-tab>
+  <mat-tab label="Second">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Favorite food" value="Sushi">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Leave a comment"></textarea>
+      </mat-form-field>
+
+      <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
+          {{tile.text}}
+        </mat-grid-tile>
+      </mat-grid-list>
+
+    </form>
+
+
+  </mat-tab>
+  <mat-tab label="Third">
+    <mat-form-field>
+      <mat-select placeholder="Favorite food">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+  </mat-tab>
+
+
+  <mat-tab label="Table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> Weight </th>
+        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-tab>
+
+  <mat-tab label="Forth">
+
+    <h3>Basic Buttons</h3>
+    <div class="button-row">
+      <button mat-button>Basic</button>
+      <button mat-button color="primary">Primary</button>
+      <button mat-button color="accent">Accent</button>
+      <button mat-button color="warn">Warn</button>
+      <button mat-button disabled>Disabled</button>
+      <a mat-button routerLink=".">Link</a>
+    </div>
+
+    <h3>Raised Buttons</h3>
+    <div class="button-row">
+      <button mat-raised-button>Basic</button>
+      <button mat-raised-button color="primary">Primary</button>
+      <button mat-raised-button color="accent">Accent</button>
+      <button mat-raised-button color="warn">Warn</button>
+      <button mat-raised-button disabled>Disabled</button>
+      <a mat-raised-button routerLink=".">Link</a>
+    </div>
+
+    <h3>Icon Buttons</h3>
+    <div class="button-row">
+      <button mat-icon-button>
+        <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+      </button>
+      <button mat-icon-button color="primary">
+        <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+      </button>
+      <button mat-icon-button color="accent">
+        <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+      </button>
+      <button mat-icon-button color="warn">
+        <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+      </button>
+      <button mat-icon-button disabled>
+        <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+      </button>
+    </div>
+
+    <h3>Fab Buttons</h3>
+    <div class="button-row">
+      <button mat-fab>Basic</button>
+      <button mat-fab color="primary">Primary</button>
+      <button mat-fab color="accent">Accent</button>
+      <button mat-fab color="warn">Warn</button>
+      <button mat-fab disabled>Disabled</button>
+      <button mat-fab>
+        <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+      </button>
+      <a mat-fab routerLink=".">Link</a>
+    </div>
+
+    <h3>Mini Fab Buttons</h3>
+    <div class="button-row">
+      <button mat-mini-fab>Basic</button>
+      <button mat-mini-fab color="primary">Primary</button>
+      <button mat-mini-fab color="accent">Accent</button>
+      <button mat-mini-fab color="warn">Warn</button>
+      <button mat-mini-fab disabled>Disabled</button>
+      <button mat-mini-fab>
+        <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+      </button>
+      <a mat-mini-fab routerLink=".">Link</a>
+    </div>
+
+  </mat-tab>
+</mat-tab-group>

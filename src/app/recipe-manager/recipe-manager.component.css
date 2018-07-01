@@ -1,0 +1,38 @@
+.example-container>* {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.add-recipe-button {
+  font-size: 28px;
+}
+
+.recipe-table {
+  padding: 20px;
+}
+
+.recipe-label {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.recipe-name-label {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.recipe-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe-toolbar-select-dropdown {
+  display: flex;
+  flex-grow: 2;
+  width: 100%;
+}
+
+.edit-recipe-button {
+  font-size: 20px;
+}
