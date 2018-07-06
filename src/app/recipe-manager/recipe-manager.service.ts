@@ -4,6 +4,11 @@ import { Dictionary } from '../tools/dictionary';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { ConfirmDialogComponent } from '../tools/confirm-dialog/confirm-dialog.component';
 import { Observable } from 'rxjs';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+
+const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +17,7 @@ export class RecipeManagerService {
     recipes = new Dictionary<Recipe>();
     recipeJsonObject: string;
 
-    constructor() {
+    constructor(private http: HttpClient) {
         this.init();
     }
 
@@ -40,8 +45,8 @@ export class RecipeManagerService {
         this.recipeJsonObject = JSON.stringify(this.recipes);
     }
 
-    getRecipes(): Dictionary<Recipe> {
-        return this.recipes;
+    getRecipes() {
+        return this.http.get<Dictionary<Recipe>>('/api/recipes');
     }
 
     getRecipe(recipeName: string): Recipe {

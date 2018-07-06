@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
     MatAutocompleteModule,
@@ -93,6 +94,7 @@ const appRoutes: Routes = [
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
+        HttpClientModule,
         MatNativeDateModule,
         ReactiveFormsModule,
         CdkTableModule,

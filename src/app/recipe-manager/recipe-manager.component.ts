@@ -5,6 +5,7 @@ import { Dictionary } from '../tools/dictionary';
 import { ConfirmDialogComponent } from '../tools/confirm-dialog/confirm-dialog.component';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { ElectronService } from 'ngx-electron';
+import { throwError } from 'rxjs';
 
 @Component({
     selector: 'app-recipe-manager',
@@ -25,7 +26,15 @@ export class RecipeManagerComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.recipes = this.recipeManagerService.getRecipes();
+        debugger;
+        this.recipeManagerService.getRecipes().subscribe(
+            (recipes) => {
+                this.recipes = recipes;
+            },
+            (error) => {
+                return throwError(error);
+            }
+        );
         this.dataSource = this.recipes.Values();
     }
 
